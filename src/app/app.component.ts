@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AlimentosService, AutenticationService } from './api/services';
+import { Alimentos } from './api/models/alimentos';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  public constructor(private api: AlimentosService) {
+    this.api.
+  }
 }
