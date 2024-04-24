@@ -1,3 +1,4 @@
+import { AutenticationService } from './api/services/autentication.service';
 import { Component } from '@angular/core';
 import { AlimentosService, AutenticationService } from './api/services';
 import { Alimentos } from './api/models/alimentos';
@@ -9,8 +10,8 @@ import { Alimentos } from './api/models/alimentos';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  public constructor(private api: AlimentosService) {
-    this.api.
+  public autentication : AutenticationService;
+  public constructor(private api: AutenticationService) {
+    this.
   }
 }

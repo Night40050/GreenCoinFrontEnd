@@ -6,10 +6,12 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { AlimentosService } from './services/alimentos.service';
 import { AutenticationService } from './services/autentication.service';
-import { ContenidoEducativoService } from './services/contenido-educativo.service';
-import { GastosService } from './services/gastos.service';
-import { IngresosService } from './services/ingresos.service';
+import { DietaAlimentosService } from './services/dieta-alimentos.service';
+import { DietasService } from './services/dietas.service';
+import { DificultadesService } from './services/dificultades.service';
+import { EjerciciosService } from './services/ejercicios.service';
 import { RecoveryPasswordService } from './services/recovery-password.service';
+import { RutinasService } from './services/rutinas.service';
 import { UserService } from './services/user.service';
 
 /**
@@ -22,10 +24,12 @@ import { UserService } from './services/user.service';
   providers: [
     AlimentosService,
     AutenticationService,
-    ContenidoEducativoService,
-    GastosService,
-    IngresosService,
+    DietaAlimentosService,
+    DietasService,
+    DificultadesService,
+    EjerciciosService,
     RecoveryPasswordService,
+    RutinasService,
     UserService,
     ApiConfiguration
   ],

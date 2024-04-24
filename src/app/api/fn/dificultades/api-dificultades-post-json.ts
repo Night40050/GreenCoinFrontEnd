@@ -1,0 +1,31 @@
+/* tslint:disable */
+/* eslint-disable */
+import { HttpClient, HttpContext, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { StrictHttpResponse } from '../../strict-http-response';
+import { RequestBuilder } from '../../request-builder';
+
+import { Dificultad } from '../../models/dificultad';
+
+export interface ApiDificultadesPost$Json$Params {
+      body?: Dificultad
+}
+
+export function apiDificultadesPost$Json(http: HttpClient, rootUrl: string, params?: ApiDificultadesPost$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<Dificultad>> {
+  const rb = new RequestBuilder(rootUrl, apiDificultadesPost$Json.PATH, 'post');
+  if (params) {
+    rb.body(params.body, 'application/*+json');
+  }
+
+  return http.request(
+    rb.build({ responseType: 'json', accept: 'text/json', context })
+  ).pipe(
+    filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
+    map((r: HttpResponse<any>) => {
+      return r as StrictHttpResponse<Dificultad>;
+    })
+  );
+}
+
+apiDificultadesPost$Json.PATH = '/api/Dificultades';

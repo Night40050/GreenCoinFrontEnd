@@ -1,45 +1,212 @@
-{
-  "openapi": "3.0.1",
-  "info": {
-    "title": "GreenCoinHealth",
-    "version": "1.0"
-  },
-  "servers": [
-    {
-      "url":"https://localhost:7092/"
-    }
-  ],
-  "paths": {
-    "/api/Alimentos": {
-      "get": {
-        "tags": [
-          "Alimentos"
-        ],
-        "operationId": "GetAlimentos",
-        "responses": {
-          "200": {
-            "description": "Success",
+
+  {
+    "openapi": "3.0.1",
+    "info": {
+      "title": "GreenCoinHealth",
+      "version": "1.0"
+    },
+    "servers": [
+      {
+        "url":"https://localhost:7092/"
+      }
+    ],
+    "paths": {
+      "/api/Alimentos": {
+        "get": {
+          "tags": [
+            "Alimentos"
+          ],
+          "operationId": "GetAlimentos",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Alimentos"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Alimentos"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Alimentos"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Alimentos"
+          ],
+          "requestBody": {
             "content": {
-              "text/plain": {
+              "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
+                  "$ref": "#/components/schemas/Alimentos"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Alimentos"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Alimentos"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Alimentos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Alimentos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
                     "$ref": "#/components/schemas/Alimentos"
                   }
                 }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
+              }
+            }
+          }
+        }
+      },
+      "/api/Alimentos/{id}": {
+        "get": {
+          "tags": [
+            "Alimentos"
+          ],
+          "operationId": "GetProducto",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Alimentos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Alimentos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
                     "$ref": "#/components/schemas/Alimentos"
                   }
                 }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Alimentos"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Alimentos"
+                }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
+                  "$ref": "#/components/schemas/Alimentos"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Alimentos"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Alimentos"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Alimentos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Alimentos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
                     "$ref": "#/components/schemas/Alimentos"
                   }
                 }
@@ -48,234 +215,177 @@
           }
         }
       },
-      "post": {
-        "tags": [
-          "Alimentos"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Alimentos"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Alimentos"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Alimentos"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
+      "/api/Autentication/value": {
+        "post": {
+          "tags": [
+            "Autentication"
+          ],
+          "requestBody": {
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Alimentos"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Alimentos"
+                  "$ref": "#/components/schemas/LoginDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Alimentos"
+                  "$ref": "#/components/schemas/LoginDTO"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginDTO"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/Alimentos/{id}": {
-      "get": {
-        "tags": [
-          "Alimentos"
-        ],
-        "operationId": "GetProducto",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Alimentos"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Alimentos"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Alimentos"
-                }
-              }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
             }
           }
         }
       },
-      "put": {
-        "tags": [
-          "Alimentos"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Alimentos"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Alimentos"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Alimentos"
+      "/api/DietaAlimentos": {
+        "post": {
+          "tags": [
+            "DietaAlimentos"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DietaAlimento"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DietaAlimento"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DietaAlimento"
+                }
               }
             }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
           }
         }
       },
-      "delete": {
-        "tags": [
-          "Alimentos"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Alimentos"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Alimentos"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Alimentos"
-                }
+      "/api/DietaAlimentos/{dietaId}/{alimentoId}": {
+        "delete": {
+          "tags": [
+            "DietaAlimentos"
+          ],
+          "parameters": [
+            {
+              "name": "dietaId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
               }
+            },
+            {
+              "name": "alimentoId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
             }
           }
         }
-      }
-    },
-    "/api/Autentication/value": {
-      "post": {
-        "tags": [
-          "Autentication"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginDTO"
+      },
+      "/api/Dietas": {
+        "get": {
+          "tags": [
+            "Dietas"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Dieta"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Dieta"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Dieta"
+                    }
+                  }
+                }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/ContenidoEducativo": {
-      "get": {
-        "tags": [
-          "ContenidoEducativo"
-        ],
-        "operationId": "GetContenidosEducativos",
-        "responses": {
-          "200": {
-            "description": "Success",
+        "post": {
+          "tags": [
+            "Dietas"
+          ],
+          "requestBody": {
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ContenidoEducativo"
-                  }
-                }
-              },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ContenidoEducativo"
-                  }
+                  "$ref": "#/components/schemas/Dieta"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ContenidoEducativo"
+                  "$ref": "#/components/schemas/Dieta"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dieta"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dieta"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dieta"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dieta"
                   }
                 }
               }
@@ -283,203 +393,184 @@
           }
         }
       },
-      "post": {
-        "tags": [
-          "ContenidoEducativo"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
+      "/api/Dietas/{id}": {
+        "get": {
+          "tags": [
+            "Dietas"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
               "schema": {
-                "$ref": "#/components/schemas/ContenidoEducativo"
+                "type": "integer",
+                "format": "int32"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContenidoEducativo"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContenidoEducativo"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dieta"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dieta"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dieta"
+                  }
+                }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success",
+        "put": {
+          "tags": [
+            "Dietas"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContenidoEducativo"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContenidoEducativo"
+                  "$ref": "#/components/schemas/Dieta"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContenidoEducativo"
+                  "$ref": "#/components/schemas/Dieta"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dieta"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/ContenidoEducativo/{id}": {
-      "get": {
-        "tags": [
-          "ContenidoEducativo"
-        ],
-        "operationId": "GetContenidoEducativo",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
             }
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContenidoEducativo"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContenidoEducativo"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContenidoEducativo"
-                }
+        },
+        "delete": {
+          "tags": [
+            "Dietas"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
               }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
             }
           }
         }
       },
-      "put": {
-        "tags": [
-          "ContenidoEducativo"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContenidoEducativo"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContenidoEducativo"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContenidoEducativo"
+      "/api/Dificultades": {
+        "get": {
+          "tags": [
+            "Dificultades"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Dificultad"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Dificultad"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Dificultad"
+                    }
+                  }
+                }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "ContenidoEducativo"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
+        "post": {
+          "tags": [
+            "Dificultades"
+          ],
+          "requestBody": {
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContenidoEducativo"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContenidoEducativo"
+                  "$ref": "#/components/schemas/Dificultad"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContenidoEducativo"
+                  "$ref": "#/components/schemas/Dificultad"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dificultad"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/Gastos": {
-      "get": {
-        "tags": [
-          "Gastos"
-        ],
-        "operationId": "GetGastos",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Gastos"
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dificultad"
                   }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Gastos"
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dificultad"
                   }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Gastos"
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dificultad"
                   }
                 }
               }
@@ -487,203 +578,184 @@
           }
         }
       },
-      "post": {
-        "tags": [
-          "Gastos"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
+      "/api/Dificultades/{id}": {
+        "get": {
+          "tags": [
+            "Dificultades"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
               "schema": {
-                "$ref": "#/components/schemas/Gastos"
+                "type": "integer",
+                "format": "int32"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Gastos"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Gastos"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dificultad"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dificultad"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Dificultad"
+                  }
+                }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success",
+        "put": {
+          "tags": [
+            "Dificultades"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Gastos"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Gastos"
+                  "$ref": "#/components/schemas/Dificultad"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Gastos"
+                  "$ref": "#/components/schemas/Dificultad"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dificultad"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/Gastos/{id}": {
-      "get": {
-        "tags": [
-          "Gastos"
-        ],
-        "operationId": "GetGasto",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
             }
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Gastos"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Gastos"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Gastos"
-                }
+        },
+        "delete": {
+          "tags": [
+            "Dificultades"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
               }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
             }
           }
         }
       },
-      "put": {
-        "tags": [
-          "Gastos"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Gastos"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Gastos"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Gastos"
+      "/api/Ejercicios": {
+        "get": {
+          "tags": [
+            "Ejercicios"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Ejercicio"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Ejercicio"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Ejercicio"
+                    }
+                  }
+                }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Gastos"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
+        "post": {
+          "tags": [
+            "Ejercicios"
+          ],
+          "requestBody": {
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Gastos"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Gastos"
+                  "$ref": "#/components/schemas/Ejercicio"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Gastos"
+                  "$ref": "#/components/schemas/Ejercicio"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ejercicio"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/Ingresos": {
-      "get": {
-        "tags": [
-          "Ingresos"
-        ],
-        "operationId": "GetIngresos",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Ingresos"
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Ejercicio"
                   }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Ingresos"
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Ejercicio"
                   }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Ingresos"
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Ejercicio"
                   }
                 }
               }
@@ -691,611 +763,753 @@
           }
         }
       },
-      "post": {
-        "tags": [
-          "Ingresos"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
+      "/api/Ejercicios/{id}": {
+        "get": {
+          "tags": [
+            "Ejercicios"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
               "schema": {
-                "$ref": "#/components/schemas/Ingresos"
+                "type": "integer",
+                "format": "int32"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Ingresos"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Ingresos"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Ejercicio"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Ejercicio"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Ejercicio"
+                  }
+                }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success",
+        "put": {
+          "tags": [
+            "Ejercicios"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Ingresos"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ingresos"
+                  "$ref": "#/components/schemas/Ejercicio"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ingresos"
+                  "$ref": "#/components/schemas/Ejercicio"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ejercicio"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Ejercicios"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Recovery_Password/Recovery-password": {
+        "post": {
+          "tags": [
+            "Recovery_Password"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MailDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MailDTO"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MailDTO"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Rutinas": {
+        "get": {
+          "tags": [
+            "Rutinas"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Rutina"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Rutina"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Rutina"
+                    }
+                  }
                 }
               }
             }
           }
-        }
-      }
-    },
-    "/api/Ingresos/{id}": {
-      "get": {
-        "tags": [
-          "Ingresos"
-        ],
-        "operationId": "GetIngreso",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
+        },
+        "post": {
+          "tags": [
+            "Rutinas"
+          ],
+          "requestBody": {
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Ingresos"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ingresos"
+                  "$ref": "#/components/schemas/Rutina"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ingresos"
+                  "$ref": "#/components/schemas/Rutina"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Rutina"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Rutina"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Rutina"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Rutina"
+                  }
                 }
               }
             }
           }
         }
       },
-      "put": {
-        "tags": [
-          "Ingresos"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+      "/api/Rutinas/{id}": {
+        "get": {
+          "tags": [
+            "Rutinas"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
             }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Ingresos"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Ingresos"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Ingresos"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Rutina"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Rutina"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Rutina"
+                  }
+                }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Ingresos"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+        "put": {
+          "tags": [
+            "Rutinas"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
+          ],
+          "requestBody": {
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Ingresos"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ingresos"
+                  "$ref": "#/components/schemas/Rutina"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ingresos"
+                  "$ref": "#/components/schemas/Rutina"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Rutina"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/Recovery_Password/Recovery-password": {
-      "post": {
-        "tags": [
-          "Recovery_Password"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/MailDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/MailDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/MailDTO"
-              }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/User/Register_User": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
+        "delete": {
+          "tags": [
+            "Rutinas"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
               "schema": {
-                "$ref": "#/components/schemas/UserDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserDTO"
+                "type": "integer",
+                "format": "int32"
               }
             }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/User/ChangePassword": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChagePasswordDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChagePasswordDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChagePasswordDTO"
-              }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
             }
           }
+        }
+      },
+      "/api/User/Register_User": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTO"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTO"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/User/ChangePassword": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChagePasswordDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChagePasswordDTO"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChagePasswordDTO"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/User/ReadUsers": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/User/UpdateUser/{dni}": {
+        "put": {
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "name": "dni",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTO"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTO"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/User/DeleteUser/{dni}": {
+        "delete": {
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "name": "dni",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/User/GetUser/{dni}": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "parameters": [
+            {
+              "name": "dni",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Alimentos": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nombre": {
+              "type": "string",
+              "nullable": true
+            },
+            "descripcion": {
+              "type": "string",
+              "nullable": true
+            },
+            "tipo": {
+              "type": "string",
+              "nullable": true
+            },
+            "precio": {
+              "type": "number",
+              "format": "double"
+            },
+            "esOrganico": {
+              "type": "boolean"
+            },
+            "origen": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/User/ReadUsers": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/User/UpdateUser/{dni}": {
-      "put": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "dni",
-            "in": "path",
-            "required": true,
-            "schema": {
+        "ChagePasswordDTO": {
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string",
+              "nullable": true
+            },
+            "password": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Dieta": {
+          "type": "object",
+          "properties": {
+            "dietaId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nombre": {
+              "type": "string",
+              "nullable": true
+            },
+            "descripcion": {
+              "type": "string",
+              "nullable": true
+            },
+            "dietaAlimentos": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DietaAlimento"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "DietaAlimento": {
+          "type": "object",
+          "properties": {
+            "dietaId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "dieta": {
+              "$ref": "#/components/schemas/Dieta"
+            },
+            "alimentoId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "alimento": {
+              "$ref": "#/components/schemas/Alimentos"
+            }
+          },
+          "additionalProperties": false
+        },
+        "Dificultad": {
+          "type": "object",
+          "properties": {
+            "dificultadId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nombre": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Ejercicio": {
+          "type": "object",
+          "properties": {
+            "ejercicioId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nombre": {
+              "type": "string",
+              "nullable": true
+            },
+            "descripcion": {
+              "type": "string",
+              "nullable": true
+            },
+            "repeticiones": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "series": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "rutinaId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "rutina": {
+              "$ref": "#/components/schemas/Rutina"
+            },
+            "dificultadId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "dificultad": {
+              "$ref": "#/components/schemas/Dificultad"
+            }
+          },
+          "additionalProperties": false
+        },
+        "LoginDTO": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "nullable": true
+            },
+            "password": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "MailDTO": {
+          "type": "object",
+          "properties": {
+            "email_Addressee": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Rutina": {
+          "type": "object",
+          "properties": {
+            "rutinaId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nombre": {
+              "type": "string",
+              "nullable": true
+            },
+            "descripcion": {
+              "type": "string",
+              "nullable": true
+            },
+            "ejercicios": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Ejercicio"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserDTO": {
+          "required": [
+            "confirm_Password",
+            "dni",
+            "email",
+            "gender",
+            "lastName",
+            "name",
+            "password",
+            "typeDni",
+            "username"
+          ],
+          "type": "object",
+          "properties": {
+            "dni": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "typeDni": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "name": {
+              "maxLength": 80,
+              "minLength": 0,
+              "type": "string"
+            },
+            "second_name": {
+              "maxLength": 80,
+              "minLength": 0,
+              "type": "string",
+              "nullable": true
+            },
+            "lastName": {
+              "maxLength": 80,
+              "minLength": 0,
+              "type": "string"
+            },
+            "second_surname": {
+              "maxLength": 80,
+              "minLength": 0,
+              "type": "string",
+              "nullable": true
+            },
+            "username": {
+              "maxLength": 50,
+              "minLength": 0,
+              "type": "string"
+            },
+            "email": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "phone": {
+              "minLength": 8,
+              "type": "string",
+              "nullable": true
+            },
+            "gender": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "password": {
+              "minLength": 8,
+              "type": "string"
+            },
+            "confirm_Password": {
+              "minLength": 8,
               "type": "string"
             }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
+          },
+          "additionalProperties": false
         }
-      }
-    },
-    "/api/User/DeleteUser/{dni}": {
-      "delete": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "dni",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/User/GetUser/{dni}": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "dni",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "Alimentos": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nombre": {
-            "type": "string",
-            "nullable": true
-          },
-          "descripcion": {
-            "type": "string",
-            "nullable": true
-          },
-          "tipo": {
-            "type": "string",
-            "nullable": true
-          },
-          "precio": {
-            "type": "number",
-            "format": "double"
-          },
-          "esOrganico": {
-            "type": "boolean"
-          },
-          "origen": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ChagePasswordDTO": {
-        "type": "object",
-        "properties": {
-          "username": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ContenidoEducativo": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "titulo": {
-            "type": "string",
-            "nullable": true
-          },
-          "descripcion": {
-            "type": "string",
-            "nullable": true
-          },
-          "tipo": {
-            "type": "string",
-            "nullable": true
-          },
-          "nivel": {
-            "type": "string",
-            "nullable": true
-          },
-          "tema": {
-            "type": "string",
-            "nullable": true
-          },
-          "url": {
-            "type": "string",
-            "nullable": true
-          },
-          "fechaPublicacion": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "usuarioId": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Gastos": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "monto": {
-            "type": "number",
-            "format": "double"
-          },
-          "fecha": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "descripcion": {
-            "type": "string",
-            "nullable": true
-          },
-          "categoria": {
-            "type": "string",
-            "nullable": true
-          },
-          "usuarioId": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Ingresos": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "cantidad": {
-            "type": "number",
-            "format": "double"
-          },
-          "fecha": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "descripcion": {
-            "type": "string",
-            "nullable": true
-          },
-          "categoria": {
-            "type": "string",
-            "nullable": true
-          },
-          "usuarioId": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "LoginDTO": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "MailDTO": {
-        "type": "object",
-        "properties": {
-          "email_Addressee": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserDTO": {
-        "required": [
-          "confirm_Password",
-          "dni",
-          "email",
-          "gender",
-          "lastName",
-          "name",
-          "password",
-          "typeDni",
-          "username"
-        ],
-        "type": "object",
-        "properties": {
-          "dni": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "typeDni": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "name": {
-            "maxLength": 80,
-            "minLength": 0,
-            "type": "string"
-          },
-          "second_name": {
-            "maxLength": 80,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "lastName": {
-            "maxLength": 80,
-            "minLength": 0,
-            "type": "string"
-          },
-          "second_surname": {
-            "maxLength": 80,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "username": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string"
-          },
-          "email": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "phone": {
-            "minLength": 8,
-            "type": "string",
-            "nullable": true
-          },
-          "gender": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "password": {
-            "minLength": 8,
-            "type": "string"
-          },
-          "confirm_Password": {
-            "minLength": 8,
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
       }
     }
   }
-}
